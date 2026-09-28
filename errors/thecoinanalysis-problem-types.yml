@@ -1,0 +1,43 @@
+generated: '2026-09-28'
+method: derived
+generator: derive-problem-types.py
+source:
+- openapi/_original/spec.json
+format: custom
+envelope:
+  media_type: null
+  schema: null
+coverage:
+  operations: 4
+  statuses_declared: 5
+problems:
+- status: 400
+  title: Bad Request
+  description: Invalid email
+  operations: 1
+  media_types: []
+  schema: null
+- status: 401
+  title: Unauthorized
+  description: Missing or invalid API key
+  operations: 3
+  media_types: []
+  schema: null
+- status: 404
+  title: Not Found
+  description: Token not found
+  operations: 2
+  media_types: []
+  schema: null
+- status: 429
+  title: Too Many Requests
+  description: Rate limit exceeded
+  operations: 4
+  media_types: []
+  schema: null
+- status: 500
+  title: Internal Server Error
+  description: Server or mailer error
+  operations: 1
+  media_types: []
+  schema: null

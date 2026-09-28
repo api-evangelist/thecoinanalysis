@@ -1,0 +1,29 @@
+generated: '2026-09-28'
+method: derived
+generator: derive-mcp-candidate.py
+source:
+- openapi/_original/spec.json
+status: candidate
+deployment:
+  mode: none
+  auth: unknown
+  verified: probed
+note: No MCP server was found. The pre-flight posted tools/list to /mcp on api.thecoinanalysis.com, www.thecoinanalysis.com, fr.thecoinanalysis.com;
+  verdict absent. Candidate tools below are derived from the 3 operation(s) in the provider's own OpenAPI (3 listed); they describe what a server
+  WOULD expose, not one that exists.
+tools:
+- name: create_v1_signup
+  operationId: POST /api/public/v1/signup
+  method: POST
+  path: /api/public/v1/signup
+  description: Get a free API key for the public price API
+- name: get_v1_prices
+  operationId: GET /api/public/v1/prices
+  method: GET
+  path: /api/public/v1/prices
+  description: List live token prices
+- name: get_prices_history
+  operationId: GET /api/public/v1/prices/{symbol}/history
+  method: GET
+  path: /api/public/v1/prices/{symbol}/history
+  description: Historical prices for a single token

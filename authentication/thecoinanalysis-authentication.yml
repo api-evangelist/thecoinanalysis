@@ -1,0 +1,15 @@
+generated: '2026-09-28'
+method: derived
+source: openapi/thecoinanalysis-openapi.json
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: publicApiKey
+  type: apiKey
+  in: header
+  parameter: x-api-key
+  sources:
+  - openapi/thecoinanalysis-openapi.json

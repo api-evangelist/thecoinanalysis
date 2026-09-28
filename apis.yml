@@ -1,29 +1,72 @@
 aid: thecoinanalysis
 name: The Coin Analysis
-description: 'The Coin Analysis is a company surfaced via the API Evangelist harvest backlog (source:
-  new-submission) and added to the network as a stub for full-pipeline profiling.'
+image: https://www.thecoinanalysis.com/logo.png
+description: The Coin Analysis provides real-time cryptocurrency news, market analysis, and price data through a REST API. It offers endpoints
+  for current crypto prices, historical data, and news articles, secured with an API key. The service targets developers building financial, trading,
+  or analytics applications.
 url: https://raw.githubusercontent.com/api-evangelist/thecoinanalysis/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:new-submission
-x-tier: stub
-x-tier-reason: harvest
+x-tier: profiled
+x-tier-reason: enrichment pass 2026-09-28 (modular-v1; was harvest)
 specificationVersion: '0.20'
 created: '2026-09-28'
 modified: '2026-09-28'
 tags:
 - Company
-apis: []
+- Crypto
+- News
+- API
+- Data
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: AgenticAccess
+  url: agentic-access/thecoinanalysis-agentic-access.yml
+- type: Spectral
+  url: rules/thecoinanalysis-rules.yml
+- type: ErrorCatalog
+  url: errors/thecoinanalysis-problem-types.yml
+- type: Conformance
+  url: conformance/thecoinanalysis-conformance.yml
+- type: Hosts
+  url: hosts/thecoinanalysis-hosts.yml
+- type: TermsOfService
+  url: https://www.thecoinanalysis.com/terms-of-service
+- type: PrivacyPolicy
+  url: https://www.thecoinanalysis.com/privacy-policy
+- type: Pricing
+  url: https://www.thecoinanalysis.com/prices
+- type: Newsroom
+  url: https://www.thecoinanalysis.com/news
+- type: Authentication
+  url: authentication/thecoinanalysis-authentication.yml
+- type: DomainSecurity
+  url: security/thecoinanalysis-domain-security.yml
 - type: Website
   url: https://www.thecoinanalysis.com/
 - type: Documentation
   url: https://www.thecoinanalysis.com/developers
-x-submission-notes: Emailed listing request. Crypto price REST API, x-api-key; OpenAPI 3.0 at /api/public/v1/docs.json
-  (4 paths). No apis.json, llms.txt or MCP yet (their words).
+- type: APIReference
+  url: https://www.thecoinanalysis.com/developers
+- type: GettingStarted
+  url: https://www.thecoinanalysis.com/developers
+apis:
+- name: Public Price API
+  description: Public API for live crypto token prices.
+  humanURL: https://www.thecoinanalysis.com/developers
+  baseURL: https://www.thecoinanalysis.com
+  aid: thecoinanalysis:public-price-api
+x-submission-notes: Emailed listing request. Crypto price REST API, x-api-key; OpenAPI 3.0 at /api/public/v1/docs.json (4 paths). No apis.json,
+  llms.txt or MCP yet (their words).
 x-submission-probe: root 200, invented path 404, docs 200, OpenAPI 3.0 200 application/json (4 paths)
 x-submitted-by: contact@thecoinanalysis.com (email/apisio, 2026-09-25)
+x-enrichment:
+  date: '2026-09-28'
+  status: enriched
+  artifacts_added: 13
+  pass: modular-v1
+  engine: identity=local,contract=local,surfaces=local,docs=local,regulatory=local
