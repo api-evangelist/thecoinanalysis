@@ -1,0 +1,29 @@
+aid: thecoinanalysis
+name: The Coin Analysis
+description: 'The Coin Analysis is a company surfaced via the API Evangelist harvest backlog (source:
+  new-submission) and added to the network as a stub for full-pipeline profiling.'
+url: https://raw.githubusercontent.com/api-evangelist/thecoinanalysis/refs/heads/main/apis.yml
+x-type: company
+x-source: harvest:new-submission
+x-tier: stub
+x-tier-reason: harvest
+specificationVersion: '0.20'
+created: '2026-09-28'
+modified: '2026-09-28'
+tags:
+- Company
+apis: []
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
+- FN: APIs.json
+  email: info@apis.io
+common:
+- type: Website
+  url: https://www.thecoinanalysis.com/
+- type: Documentation
+  url: https://www.thecoinanalysis.com/developers
+x-submission-notes: Emailed listing request. Crypto price REST API, x-api-key; OpenAPI 3.0 at /api/public/v1/docs.json
+  (4 paths). No apis.json, llms.txt or MCP yet (their words).
+x-submission-probe: root 200, invented path 404, docs 200, OpenAPI 3.0 200 application/json (4 paths)
+x-submitted-by: contact@thecoinanalysis.com (email/apisio, 2026-09-25)
