@@ -60,6 +60,15 @@ apis:
   humanURL: https://www.thecoinanalysis.com/developers
   baseURL: https://www.thecoinanalysis.com
   aid: thecoinanalysis:public-price-api
+- aid: thecoinanalysis:thecoinanalysis-public-api-api
+  name: The Coin Analysis Public API
+  description: The Public API API from The Coin Analysis — 4 operation(s) for public api.
+  humanURL: https://www.thecoinanalysis.com/developers
+  tags:
+  - Public API
+  properties:
+  - type: OpenAPI
+    url: openapi/thecoinanalysis-public-api-api-openapi.yml
 x-submission-notes: Emailed listing request. Crypto price REST API, x-api-key; OpenAPI 3.0 at /api/public/v1/docs.json (4 paths). No apis.json,
   llms.txt or MCP yet (their words).
 x-submission-probe: root 200, invented path 404, docs 200, OpenAPI 3.0 200 application/json (4 paths)

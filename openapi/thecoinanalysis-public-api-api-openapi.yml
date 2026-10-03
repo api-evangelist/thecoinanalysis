@@ -1,0 +1,161 @@
+openapi: 3.2.0
+info:
+  title: TheCoinAnalysis Public Price Public API
+  version: 1.0.0
+  description: Public API for live crypto token prices. Get a free key at POST /api/public/v1/signup.
+servers:
+- url: https://www.thecoinanalysis.com
+  description: Production
+tags:
+- name: Public API
+paths:
+  /api/public/v1/signup:
+    post:
+      summary: Get a free API key for the public price API
+      tags:
+      - Public API
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - email
+              properties:
+                email:
+                  type: string
+      responses:
+        '200':
+          description: Key created (or resent) and emailed
+        '400':
+          description: Invalid email
+        '429':
+          description: Too many signup attempts
+        '500':
+          description: Server or mailer error
+      operationId: postApiPublicV1Signup
+      x-operation-id-source: derived
+  /api/public/v1/prices:
+    get:
+      summary: List live token prices
+      tags:
+      - Public API
+      security:
+      - publicApiKey: []
+      parameters:
+      - name: page
+        in: query
+        schema:
+          type: integer
+          default: 1
+      - name: perPage
+        in: query
+        schema:
+          type: integer
+          default: 50
+          maximum: 250
+      - name: order
+        in: query
+        schema:
+          type: string
+          enum:
+          - market_cap
+          - price
+          - volume
+          - change24h
+          - name
+          - symbol
+          - updated_at
+          - rank
+      - name: dir
+        in: query
+        schema:
+          type: string
+          enum:
+          - asc
+          - desc
+      - name: search
+        in: query
+        schema:
+          type: string
+      - name: symbols
+        in: query
+        schema:
+          type: string
+        description: Comma-separated symbols, e.g. BTC,ETH
+      responses:
+        '200':
+          description: Paginated list of token prices
+        '401':
+          description: Missing or invalid API key
+        '429':
+          description: Rate limit exceeded
+      operationId: getApiPublicV1Prices
+      x-operation-id-source: derived
+  /api/public/v1/prices/{symbol}:
+    get:
+      summary: Live price for a single token
+      tags:
+      - Public API
+      security:
+      - publicApiKey: []
+      parameters:
+      - name: symbol
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Token price detail
+        '401':
+          description: Missing or invalid API key
+        '404':
+          description: Token not found
+        '429':
+          description: Rate limit exceeded
+      operationId: getApiPublicV1PricesBySymbol
+      x-operation-id-source: derived
+  /api/public/v1/prices/{symbol}/history:
+    get:
+      summary: Historical prices for a single token
+      tags:
+      - Public API
+      security:
+      - publicApiKey: []
+      parameters:
+      - name: symbol
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: days
+        in: query
+        schema:
+          type: integer
+          default: 30
+          maximum: 365
+      - name: maxPoints
+        in: query
+        schema:
+          type: integer
+          default: 100
+          maximum: 500
+      responses:
+        '200':
+          description: Historical price series
+        '401':
+          description: Missing or invalid API key
+        '404':
+          description: Token not found
+        '429':
+          description: Rate limit exceeded
+      operationId: getApiPublicV1PricesBySymbolHistory
+      x-operation-id-source: derived
+components:
+  securitySchemes:
+    publicApiKey:
+      type: apiKey
+      in: header
+      name: x-api-key
