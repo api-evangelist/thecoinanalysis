@@ -13,7 +13,9 @@
     "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
     "spec.json: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
     "spec.json: declared missing tag: Public API",
-    "apis.yml register: written (+1 apis, 2 total)"
+    "apis.yml register: already-registered"
   ],
-  "skipped": []
+  "skipped": [
+    "thecoinanalysis-public-api-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
