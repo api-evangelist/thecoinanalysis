@@ -16,6 +16,11 @@ tags:
 - Company
 - Crypto
 - News
+- Data
+tags_raw:
+- Company
+- Crypto
+- News
 - API
 - Data
 maintainers:
@@ -65,6 +70,8 @@ apis:
   description: The Public API API from The Coin Analysis — 4 operation(s) for public api.
   humanURL: https://www.thecoinanalysis.com/developers
   tags:
+  - Public APIs
+  tags_raw:
   - Public API
   properties:
   - type: OpenAPI
